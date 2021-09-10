@@ -13,7 +13,7 @@ const useStyles = makeStyles(
 type Todo = {date:Date , task:string ,status:true | false}
 interface TodosProps{
     view?:'mobile'|'desktop'|undefined,
-    setOpen?:()=>void,
+    setOpen?:(value:boolean)=>void,
     todos:Todo[],
     setTodos:(value:Todo[])=>void
 }
@@ -23,7 +23,7 @@ export const TaskInput:React.FC<TodosProps>=({todos,setTodos,view,setOpen})=>{
     const addTodo=(e:React.KeyboardEvent)=>{
       if(e.key === 'Enter' && todo.length>0){
           if(view === 'mobile' && setOpen){
-              setOpen()
+              setOpen(false)
           }
           setTodos([...todos,{date:new Date(),task:todo,status:false}])
          setTodo('')

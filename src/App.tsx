@@ -9,11 +9,13 @@ import AddIcon from "@material-ui/icons/Add";
 const useStyles = makeStyles((theme) =>
   createStyles({
     container: {
-      width: "100%",
-      height: "100vh",
+     position:'absolute',
+     left:0,
+     right:0,
+     top:0,
+     bottom:0,
       display: "flex",
-      backgroundColor: "#84DCCF",
-    
+      backgroundColor: "#84DCCF" 
     },
     secondaryContainer: {
       backgroundColor: "#b2dfdb",
@@ -28,8 +30,9 @@ const useStyles = makeStyles((theme) =>
       },
     },
     secondaryWrapper: {
-      height: "100vh",
+      marginTop:'0',
       paddingTop: "70px",
+      
     },
   })
 );
@@ -55,9 +58,7 @@ function App() {
         }
       >
         <Hidden mdDown>
-   
-          <TaskInput todos={todos} setTodos={setTodos} />
-     
+          <TaskInput todos={todos} setTodos={setTodos} />  
         </Hidden>
 
         <TodoList todos={todos} setTodos={setTodos} />
@@ -75,7 +76,7 @@ function App() {
               <TaskInput
                 todos={todos}
                 setTodos={setTodos}
-                setOpen={() => setOpen(false)}
+                setOpen={setOpen}
                 view="mobile"
               />
             </Box>
